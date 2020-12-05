@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form enctype="multipart/form-data">
+    <fields name="kandanda_massmail_form_fields">
+        <fieldset name="emailfieldset">
+            <field
+                    type="text"
+                    name="email_subject"
+                    id="EmailSubject"
+                    required="true" 
+                    label="MOD_KANDANDA_MASSMAIL_SUBJECT_LABEL"
+                    description="MOD_KANDANDA_MASSMAIL_SUBJECT_DESCRIPTION"
+                    size="80"
+                    maxLength="255" />
+            <field
+                    type="text"
+                    name="additional_email"
+                    id="AdditionalEmail"
+                    label="MOD_KANDANDA_MASSMAIL_ADDITIONAL_ADDRESS_LABEL"
+                    description="MOD_KANDANDA_MASSMAIL_ADDITIONAL_ADDRESS_DESCRIPTION"
+                    size="80"
+                    maxLength="255" />            
+            <field
+                    type="editor"
+                    name="email_content"
+                    id="EmailContent"
+                    label="MOD_KANDANDA_MASSMAIL_CONTENT_LABEL"
+                    description="MOD_KANDANDA_MASSMAIL_CONTENT_DESCRIPTION"
+                    rows="5"
+                    cols="200"
+                    />
+        </fieldset>
+        <fieldset name="receiverfieldset">
+            <field
+                    type="checkbox"
+                    name="all_members"
+                    id="AllMembers"
+                    label="MOD_KANDANDA_MASSMAIL_ALL_MEMBERS_LABEL"
+                    description="MOD_KANDANDA_MASSMAIL_ALL_MEMBERS_DESCRIPTION"
+                    value="1" 
+                    default="0"/>
+          <!--
+             The XML code for the fields to be displayed is added within Kandanda mass mail module
+          -->          
+        </fieldset>
+    </fields>   
+</form>
