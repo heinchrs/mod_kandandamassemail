@@ -16,37 +16,43 @@
   Purpose/Change: Initial script development
 #>
 
-#----------------------------------------------------------[Declarations]----------------------------------------------------------
+# ----------------------------------------------------------[Declarations]----------------------------------------------------------
 
-#Name of directory containing the current files. This is the name of the extension
+# Name of directory containing the current files. This is the name of the extension
 $sExtensionName = (dir).directory.name[0]
 
 $sUpdateXMLfilePath = ".release\" + $sExtensionName + "_update.xml"
 
-#-----------------------------------------------------------[Execution]------------------------------------------------------------
+# -----------------------------------------------------------[Execution]------------------------------------------------------------
 
-#Read content of Joomla extension XML file
+# Read content of Joomla extension XML file
 $info = [XML] (Get-Content -Path "$sExtensionName.xml")
+# Get version information from XML file
 $sVersionInfo = $info.DocumentElement.SelectNodes("//version").InnerText
-#$VersionInfo = $VersionInfo -replace '\.','_'
 
-# target path
-$path = "./"
-# construct archive path
-#$sDateTime = (Get-Date -Format "yyMMdd")
-#$sDestination = ".release\archive_" + $VersionInfo + "_" + $DateTime + ".zip"
+# Construct archive path
 $sDestination = ".release\" + $sExtensionName + "-v" + $sVersionInfo + ".zip"
-# exclusion rules. Can use wild cards (*)
-$exclude = @(".release",".vscode",".git","*.ps1")
-# get files to compress using exclusion filer
-$files = Get-ChildItem -Path $path -Exclude $exclude
-# compress
-Compress-Archive -Path $files -DestinationPath $sDestination -CompressionLevel Fastest -Force
+# Exclusion rules. Can use wild cards (*)
+$exclude = @(".release",".vscode",".git","*.ps1","*.md")
+# Get files to compress using exclusion filer
+$files = Get-ChildItem -Path "./" -Exclude $exclude -Name
+
+# Compress
+Start-Process -FilePath "C:\Program Files\7-Zip\7z.exe" -ArgumentList "a -tzip $sDestination $files -aoa" -WorkingDirectory $PSScriptRoot
+# a     = archive
+# tzip  = normal .zip compression style
+# -aoa  = Force
 
 
-#Update version info in update XML file
+# Update version info in update XML file
+#################################################
+# Create new XML object
 $xml = New-Object XML
+# Load content of update XML
 $xml.Load($sUpdateXMLfilePath)
+# Get element containing the version information
 $element =  $xml.SelectSingleNode("//version")
+# Update the version info with version from module manifest file
 $element.InnerText = $sVersionInfo
+# Save XML update file
 $xml.Save($sUpdateXMLfilePath)
