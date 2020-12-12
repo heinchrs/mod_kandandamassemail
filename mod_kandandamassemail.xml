@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="2.5" method="upgrade">
+<extension type="module" version="3.0" method="upgrade">
   <name>KandandaMassEmail</name>
   <creationDate>06-Jul-2015</creationDate>
   <author>Heinl Christian</author>
@@ -19,7 +19,7 @@
   </files>
   <params/>
   <config>
-    <fields name="params">      
+    <fields name="params">
       <fieldset name="basic">
         <field name="email_field" type="sql" label="MOD_KANDANDA_MASSMAIL_EMAIL_LABEL" description="MOD_KANDANDA_MASSMAIL_EMAIL_DESC" default="" required="true" query="SELECT id, title, alias FROM #__kandanda_fields" key_field="id" value_field="title"/>
         <field type="spacer" name="myspacer1" hr="true"/>

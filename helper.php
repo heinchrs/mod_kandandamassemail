@@ -3,9 +3,9 @@
 /**
  * @package    KandandaMassEmail
  * @author     Heinl Christian <heinchrs@gmail.com>
- * @license    GNU General Public License version 2 or later 
+ * @license    GNU General Public License version 2 or later
  */
-//-- No direct access
+// -- No direct access
 defined('_JEXEC') or die;
 
 JLoader::register('JFile', JPATH_LIBRARIES . '/joomla/filesystem/file.php');
@@ -18,7 +18,7 @@ ini_set("mail.add_x_header", TRUE);
 
 
 /**
- * Helper class to extract form data, get email receivers out of selected Kandanda 
+ * Helper class to extract form data, get email receivers out of selected Kandanda
  * groups and select fields and send a specific email to all of the corresponding
  * Kandanda members.
  *
@@ -65,7 +65,7 @@ class KandandaMassEmail {
           foreach ($MailAccounts as &$receiver) {
             //$receiver['Email'] = strtolower($receiver['Email']);
             $recipient[] = strtolower($receiver['Email']);
-            
+
             //check if gmx, web or online email addresses exists -> needs to be sent in single mails due to problems with GMX and WEB
             if (preg_match('/@gmx\.(?:de|net)|@online\.de|@web\.de/', $receiver['Email'])) {
 	          $single_mail_addresses[] = strtolower($receiver['Email']);
@@ -96,7 +96,7 @@ class KandandaMassEmail {
                 $sender = array(
                     $config->get('config.mailfrom'),
                     $config->get('config.fromname'));
-                $mailer->setSender($sender);                
+                $mailer->setSender($sender);
                 //foreach ($MailAccounts as $receiver) {
                 //    $recipient[] = $receiver['Email'];
                 //}
@@ -106,15 +106,15 @@ class KandandaMassEmail {
                 $mailer->setBody($this->content);
                 $user = JFactory::getUser();
                 $mailer->addReplyTo($user->email,$user->name);
-                
+
                 $mail_sending_ok = true;
                 if(count($multiple_mail_addresses) > 0)
                 {
                   $mailer->addBCC($multiple_mail_addresses);
-                
+
                   // print "<pre>";
                   // print_r($mailer);
-                  // die();                  
+                  // die();
 
                   //Send one mail with all receivers who are not GMX or WEB accounts
                   $send = $mailer->Send();
@@ -123,15 +123,15 @@ class KandandaMassEmail {
                       $mail_sending_ok = false;
                   }
                 }
-                
+
                 //send for all mails containing GMX or WEB accounts one mail with only one recipient
-                foreach ($single_mail_addresses as $addr) 
+                foreach ($single_mail_addresses as $addr)
                 {
                     //$mailer->ClearBCCs();
                     //$mailer->addBCC($addr);
                     $mailer->clearAllRecipients();
                     $mailer->addRecipient($addr);
-                
+
                     $send = $mailer->Send();
                     if ($send !== true) {
                         JError::raiseWarning(100, JText::_('MOD_KANDANDA_MASSMAIL_MAIL_FAILED'));
@@ -139,7 +139,7 @@ class KandandaMassEmail {
                         break;
                     }
                 }
-                
+
                 //Check if all mails were correctly sent
                 if($mail_sending_ok) {
                   JFactory::getApplication()->enqueueMessage(JText::_('MOD_KANDANDA_MASSMAIL_MAIL_SUCCEEDED'),'notice');
@@ -203,9 +203,9 @@ class KandandaMassEmail {
     }
 
     /**
-     * Get email addresses of Kandanda members which are assigned to the 
+     * Get email addresses of Kandanda members which are assigned to the
      * selected Kandanda groups or Kandanda Select fields
-     * 
+     *
      * @return assoc array with Kandanda member data containing member id,
      * email address, lastname and firstname
      */
@@ -279,7 +279,7 @@ class KandandaMassEmail {
             $query->order($db->quoteName('Name'));
             $query->order($db->quoteName('Vorname'));
             $query->group($db->quoteName('Name'));
-            $query->group($db->quoteName('Vorname'));           
+            $query->group($db->quoteName('Vorname'));
 
             $db->setQuery($query);
             $result = $db->loadAssocList();
@@ -330,7 +330,7 @@ class KandandaMassEmail {
                     $query->order($db->quoteName('Name'));
                     $query->order($db->quoteName('Vorname'));
                     $query->group($db->quoteName('Name'));
-                    $query->group($db->quoteName('Vorname'));                   
+                    $query->group($db->quoteName('Vorname'));
 
                     $db->setQuery($query);
                     $result = array_merge($result, $db->loadAssocList());
