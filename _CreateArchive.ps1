@@ -19,7 +19,7 @@
 # ----------------------------------------------------------[Declarations]----------------------------------------------------------
 
 # Name of directory containing the current files. This is the name of the extension
-$sExtensionName = (dir).directory.name[0]
+$sExtensionName = (Get-ChildItem).directory.name[0]
 
 $sUpdateXMLfilePath = ".release\" + $sExtensionName + "_update.xml"
 
