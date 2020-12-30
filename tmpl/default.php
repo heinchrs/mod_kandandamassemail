@@ -49,22 +49,24 @@ function generateForm($params)
 	$db = JFactory::getDbo();
 	$query = $db->getQuery(true);
 
-	// **************************************************************************
-	// * Get values for frontend listbox holding Kandanda member groups
-	// **************************************************************************/
-	// get module parameter which Kandanda groups should be shown for selecting email receivers
-	$select_group_ids = $params->get('kandanda_groups', '');
+	/**
+	 *************************************************************************
+	 * Get values for frontend listbox holding Kandanda member groups
+	 *************************************************************************
+	 */
+	// Get module parameter which Kandanda groups should be shown for selecting email receivers
+	$selectGroupIds = $params->get('kandanda_groups', '');
 
-	if (is_array($select_group_ids))
+	if (is_array($selectGroupIds))
 	{
 		$query->clear();
 		$query->select('id,title,note');
 		$query->from('#__categories');
-		$query->where('id IN (' . implode(",", $select_group_ids) . ')');
+		$query->where('id IN (' . implode(",", $selectGroupIds) . ')');
 		$db->setQuery($query);
 
-		// $kandanda_groups holds assoc arrays of kandanda groups
-		$kandanda_groups = $db->loadAssocList();
+		// $kandandaGroups holds assoc arrays of kandanda groups
+		$kandandaGroups = $db->loadAssocList();
 
 		// Add a new field which contains the options out of Kandanda select field
 		$element = $sourcesXml[0]->addChild('field', new SimpleXMLElement('<field />'));
@@ -74,9 +76,9 @@ function generateForm($params)
 		$element->addAttribute('description', 'MOD_KANDANDA_MASSMAIL_RECEIVER_GROUP_DESCRIPTION');
 		$element->addAttribute('default', '');
 		$element->addAttribute('multiple', 'true');
-		$element->addAttribute('size', count($kandanda_groups));
+		$element->addAttribute('size', count($kandandaGroups));
 
-		foreach ($kandanda_groups as $value)
+		foreach ($kandandaGroups as $value)
 		{
 			$child = $element->addChild('option', htmlspecialchars($value['title'], ENT_COMPAT, 'UTF-8'));
 			$child->addAttribute('value', $value['id']);
@@ -84,28 +86,32 @@ function generateForm($params)
 		}
 	}
 
-	// **************************************************************************
-	// Get values for frontend listbox holding values of configured Kandanda select fields
-	// **************************************************************************
+	/**
+	 **************************************************************************************
+	 * Get values for frontend listbox holding values of configured Kandanda select fields
+	 **************************************************************************************
+	 */
 	// Get module parameter for id of Kandanda select field which content should be shown for selecting email receivers
-	$select_field_ids = $params->get('kandanda_selects', '');
+	$selectFieldIds = $params->get('kandanda_selects', '');
 
-	if (is_array($select_field_ids))
+	if (is_array($selectFieldIds))
 	{
-		foreach ($select_field_ids as $value)
+		foreach ($selectFieldIds as $value)
 		{
 			$query->clear();
 			$query->select('*');
 			$query->from('#__kandanda_fields');
-			$query->where('id = ' . $value); // Funktions Feld
+
+			// Funktions Feld
+			$query->where('id = ' . $value);
 			$db->setQuery($query);
 
 			// Result holds assoc array of kandanda field content
 			$result = $db->loadAssoc();
 
 			// Decode 'options' entry of kandanda field content which is in json format
-			// $kandanda_select contains an assoc array for generating a list box
-			$kandanda_select = json_decode($result['options'], true);
+			// $kandandaSelect contains an assoc array for generating a list box
+			$kandandaSelect = json_decode($result['options'], true);
 
 			// Add a new field which contains the options out of Kandanda select field
 			$element = $sourcesXml[0]->addChild('field', new SimpleXMLElement('<field />'));
@@ -115,9 +121,9 @@ function generateForm($params)
 			$element->addAttribute('description', 'MOD_KANDANDA_MASSMAIL_RECEIVER_SELECT_DESCRIPTION');
 			$element->addAttribute('default', '');
 			$element->addAttribute('multiple', 'true');
-			$element->addAttribute('size', count($kandanda_select['options']));
+			$element->addAttribute('size', count($kandandaSelect['options']));
 
-			foreach ($kandanda_select['options'] as $elementvalue)
+			foreach ($kandandaSelect['options'] as $elementvalue)
 			{
 				$child = $element->addChild('option', htmlspecialchars($elementvalue, ENT_COMPAT, 'UTF-8'));
 				$child->addAttribute('value', $elementvalue);
@@ -125,11 +131,13 @@ function generateForm($params)
 		}
 	}
 
-	// **************************************************************************
-	// Create form out of XML input
-	// **************************************************************************
-	// Load the form
-	$form = new JForm('KandandaMassmailForm'); // Create the form object to hold it
+	/**
+	 **************************************************************************
+	 * Create form out of XML input
+	 **************************************************************************
+	 */
+	// Create the form object to hold it
+	$form = new JForm('KandandaMassmailForm');
 
 	// Load the XML into the form.
 	$form->load($formXml);
@@ -147,28 +155,30 @@ function generateForm($params)
 				<?php echo JText::_($fieldset->name . '_jform_fieldset_label'); ?>
 			</legend>
 			<dl>
-				<?php
-				// Iterate through the fields and display them.
-				foreach ($form->getFieldset($fieldset->name) as $field)
-				{
-					// If the field is hidden, only use the input.
-					if ($field->hidden)
-					{
-						echo $field->input;
-					}
-					else
-					{
-						?>
-						<dt>
-							<?php echo $field->label; ?>
-						</dt>
-						<dd<?php echo ($field->type == 'Editor' || $field->type == 'Textarea') ? ' style="clear: both; margin: 0;"' : '' ?>>
-							<?php echo $field->input ?>
-						</dd>
-						<?php
-					}
-				}
+
+		<?php
+		// Iterate through the fields and display them.
+		foreach ($form->getFieldset($fieldset->name) as $field)
+		{
+			// If the field is hidden, only use the input.
+			if ($field->hidden)
+			{
+				echo $field->input;
+			}
+			else
+			{
 				?>
+				<dt>
+					<?php echo $field->label; ?>
+				</dt>
+				<dd<?php echo ($field->type == 'Editor' || $field->type == 'Textarea') ? ' style="clear: both; margin: 0;"' : '' ?>>
+					<?php echo $field->input ?>
+				</dd>
+				<?php
+			}
+		}
+		?>
+
 			</dl>
 		</fieldset>
 		<?php
