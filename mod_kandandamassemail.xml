@@ -34,6 +34,6 @@
     </fields>
   </config>
   <updateservers>
-    <server type="extension" name="KandandaMassEmail" priority="1">https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail_update.xml</server>
+    <server type="extension" name="Kandanda Mass Email" priority="1">https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail_update.xml</server>
   </updateservers>
 </extension>
