@@ -25,7 +25,7 @@ $sExtensionName = (Get-ChildItem).directory.name[0]
 $sUpdateXMLfilePath = ".release\" + $sExtensionName + "_update.xml"
 
 # URL where module installation archive is loacated
-$sDownloadURLPath = "https://github.com/heinchrs/mod_kandandamassemail/.release/"
+$sDownloadURLPath = "https://github.com/heinchrs/mod_kandandamassemail/blob/main/.release/"
 
 # -----------------------------------------------------------[Execution]------------------------------------------------------------
 
@@ -63,7 +63,7 @@ $elementVersion.InnerText = $sVersionInfo
 # Get element containing the download URL information
 $elementURL =  $xml.SelectSingleNode("//downloadurl")
 # Update the download location info according to version from module manifest file
-$elementURL.InnerText = $sDownloadURLPath + $sExtensionName + "-v" + $sVersionInfo + ".zip"
+$elementURL.InnerText = $sDownloadURLPath + $sExtensionName + "-v" + $sVersionInfo + ".zip?raw=true"
 
 # Save XML update file
 $xml.Save($sUpdateXMLfilePath)

@@ -37,7 +37,7 @@ function CHANGELOG()
 	 *
 	 * **********************************************
 	 *
-	 * Version 1.0.2
+	 * Version 1.1.0
 	 * 30-Dec-2020 Heinl Christian
 	 * + Header image for email can be configured
 	 *
