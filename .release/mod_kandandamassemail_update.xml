@@ -5,9 +5,9 @@
       <h1>Modul 'Kandanda Mass Email'</h1>This module requires an installation of the <a href="https://www.kandanda.net/" target="_blank">Kandanda-Component</a>.<br /><br />Using this module, it is possible to send emails to Kandanda members assigned to specific Kandanda groups, or where appropriate Kandanda field values are assigned to.<br /> In the configuration section of the module must first be determined the field which contains the e-mail address of the respective Kandanda-member. Subsequently select which Kandanda groups and -Select fields to be displayed in the frontend area. Members who are assigned to these groups, or that have the selected Select field value, the appropriately formulated email will be sent to.<br /><br />Have fun with it ;-)</description>
     <element>mod_kandandamassemail</element>
     <type>module</type>
-    <version>1.1.1</version>
+    <version>1.1.0</version>
     <downloads>
-      <downloadurl type="full" format="zip">https://github.com/heinchrs/mod_kandandamassemail/blob/main/.release/mod_kandandamassemail-v1.1.1.zip?raw=true</downloadurl>
+      <downloadurl type="full" format="zip">https://github.com/heinchrs/mod_kandandamassemail/blob/main/.release/mod_kandandamassemail-v1.1.0.zip?raw=true</downloadurl>
     </downloads>
     <maintainer>heinchrs</maintainer>
     <maintainerurl>https://github.com/heinchrs</maintainerurl>

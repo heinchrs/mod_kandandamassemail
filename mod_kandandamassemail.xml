@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.0" method="upgrade">
-  <name>Kandanda Mass Email</name>
-  <creationDate>31-Dec-2020</creationDate>
-  <author>Heinl Christian</author>
-  <authorEmail>heinchrs@gmail.com</authorEmail>
-  <authorUrl/>
-  <copyright>Heinl Christian, 2020</copyright>
-  <license>GNU/GPL 3</license>
-  <version>1.1.1</version>
-  <description>MOD_KANDANDA_MASSMAIL_DESCRIPTION</description>
-  <files folder="site">
-    <folder>language</folder>
-    <folder>tmpl</folder>
-    <filename>CHANGELOG.php</filename>
-    <filename>helper.php</filename>
-    <filename>index.html</filename>
-    <filename module="mod_kandandamassemail">mod_kandandamassemail.php</filename>
-  </files>
-  <params/>
-  <config>
-    <fields name="params">
-      <fieldset name="basic">
-        <field name="email_field" type="sql" label="MOD_KANDANDA_MASSMAIL_EMAIL_LABEL" description="MOD_KANDANDA_MASSMAIL_EMAIL_DESC" default="" required="true" query="SELECT id, title, alias FROM #__kandanda_fields" key_field="id" value_field="title"/>
-        <field type="spacer" name="myspacer1" hr="true"/>
-        <field name="kandanda_groups" type="sql" label="MOD_KANDANDA_MASSMAIL_GROUP_LABEL" description="MOD_KANDANDA_MASSMAIL_GROUP_DESC" default="" query="SELECT id,title FROM #__categories WHERE extension = 'com_kandanda.ma.member' AND level = 2" key_field="id" value_field="title" size="5" multiple="true"/>
-        <field name="kandanda_selects" type="sql" label="MOD_KANDANDA_MASSMAIL_SELECTS_LABEL" description="MOD_KANDANDA_MASSMAIL_SELECTS_DESC" default="" query="SELECT id, title, alias FROM #__kandanda_fields where type='select'" key_field="id" value_field="title" size="5" multiple="true"/>
-        <field name="header_image_url" type="text" default="" label="MOD_KANDANDA_MASSMAIL_HEADER_IMAGE_LABEL" description="MOD_KANDANDA_MASSMAIL_NOTIFY_HEADER_IMAGE_DESC" size="20" />
-        <field type="spacer" name="myspacer2" hr="true"/>
-        <field name="notification_email" type="email" label="MOD_KANDANDA_MASSMAIL_ADMIN_EMAIL_LABEL" description="MOD_KANDANDA_MASSMAIL_ADMIN_EMAIL_DESC" size="30" class="inputbox" validate="email"/>
-        <field name="debug_output" type="checkbox" label="MOD_KANDANDA_DEBUG_OUTPUT_LABEL" description="MOD_KANDANDA_DEBUG_OUTPUT_DESC" value="1" default="0"/>
-        <field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
-      </fieldset>
-    </fields>
-  </config>
-  <updateservers>
-    <server type="extension" name="Kandanda Mass Email" priority="1">https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail_update.xml</server>
-  </updateservers>
+	<name>Kandanda Mass Email</name>
+	<creationDate>31-Dec-2020</creationDate>
+	<author>Heinl Christian</author>
+	<authorEmail>heinchrs@gmail.com</authorEmail>
+	<authorUrl/>
+	<copyright>Heinl Christian, 2020</copyright>
+	<license>GNU/GPL 3</license>
+	<version>1.1.0</version>
+	<description>MOD_KANDANDA_MASSMAIL_DESCRIPTION</description>
+	<files folder="site">
+		<folder>language</folder>
+		<folder>tmpl</folder>
+		<filename>CHANGELOG.php</filename>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename module="mod_kandandamassemail">mod_kandandamassemail.php</filename>
+	</files>
+	<params/>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="email_field" type="sql" label="MOD_KANDANDA_MASSMAIL_EMAIL_LABEL" description="MOD_KANDANDA_MASSMAIL_EMAIL_DESC" default="" required="true" query="SELECT id, title, alias FROM #__kandanda_fields" key_field="id" value_field="title"/>
+				<field type="spacer" name="myspacer1" hr="true"/>
+				<field name="kandanda_groups" type="sql" label="MOD_KANDANDA_MASSMAIL_GROUP_LABEL" description="MOD_KANDANDA_MASSMAIL_GROUP_DESC" default="" query="SELECT id,title FROM #__categories WHERE extension = 'com_kandanda.ma.member' AND level = 2" key_field="id" value_field="title" size="5" multiple="true"/>
+				<field name="kandanda_selects" type="sql" label="MOD_KANDANDA_MASSMAIL_SELECTS_LABEL" description="MOD_KANDANDA_MASSMAIL_SELECTS_DESC" default="" query="SELECT id, title, alias FROM #__kandanda_fields where type='select'" key_field="id" value_field="title" size="5" multiple="true"/>
+				<field name="header_image_url" type="text" default="" label="MOD_KANDANDA_MASSMAIL_HEADER_IMAGE_LABEL" description="MOD_KANDANDA_MASSMAIL_NOTIFY_HEADER_IMAGE_DESC" size="20" />
+				<field type="spacer" name="myspacer2" hr="true"/>
+				<field name="notification_email" type="email" label="MOD_KANDANDA_MASSMAIL_ADMIN_EMAIL_LABEL" description="MOD_KANDANDA_MASSMAIL_ADMIN_EMAIL_DESC" size="30" class="inputbox" validate="email"/>
+				<field name="debug_output" type="checkbox" label="MOD_KANDANDA_DEBUG_OUTPUT_LABEL" description="MOD_KANDANDA_DEBUG_OUTPUT_DESC" value="1" default="0"/>
+				<field name="moduleclass_sfx" type="text" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"/>
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" name="Kandanda Mass Email" priority="1">https://raw.githack.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail_update.xml</server>
+		<!-- Normally the following path should be used
+		https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail_update.xml
+		Since github serves the files as plain text files the content isn't recognized as XML file.
+		Therefore the service raw.githack.com is used
+		-->
+	</updateservers>
 </extension>
