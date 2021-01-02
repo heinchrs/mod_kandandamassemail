@@ -12,7 +12,7 @@
     <maintainer>heinchrs</maintainer>
     <maintainerurl>https://github.com/heinchrs</maintainerurl>
     <targetplatform name="joomla" version="3.6" />
-    <client>site</client>
+    <client>0</client>
   </update>
   <update>
     <name>Kandanda Mass Email</name>
@@ -27,7 +27,7 @@
     <maintainer>heinchrs</maintainer>
     <maintainerurl>https://github.com/heinchrs</maintainerurl>
     <targetplatform name="joomla" version="3.6" />
-    <client>site</client>
+    <client>0</client>
   </update>
   <update>
     <name>Kandanda Mass Email</name>
@@ -42,7 +42,7 @@
     <maintainer>heinchrs</maintainer>
     <maintainerurl>https://github.com/heinchrs</maintainerurl>
     <targetplatform name="joomla" version="3.6" />
-    <client>site</client>
+    <client>0</client>
   </update>
   <update>
     <name>Kandanda Mass Email</name>
@@ -57,6 +57,6 @@
     <maintainer>heinchrs</maintainer>
     <maintainerurl>https://github.com/heinchrs</maintainerurl>
     <targetplatform name="joomla" version="3.6" />
-    <client>site</client>
+    <client>0</client>
   </update>
 </updates>
