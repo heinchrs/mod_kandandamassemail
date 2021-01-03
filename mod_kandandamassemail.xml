@@ -7,7 +7,7 @@
 	<authorUrl/>
 	<copyright>Heinl Christian, 2020</copyright>
 	<license>GNU/GPL 3</license>
-	<version>1.1.1</version>
+	<version>1.1.0</version>
 	<description>MOD_KANDANDA_MASSMAIL_DESCRIPTION</description>
 	<files folder="site">
 		<folder>language</folder>
@@ -34,6 +34,7 @@
 		</fields>
 	</config>
 	<updateservers>
+	  <!--<server type="extension" name="Kandanda Mass Email" priority="1">http://heinl-neusorg.de/joomla/modules/kandandamassemail/mod_kandandamassemail_update.xml</server>-->
 		<server type="extension" name="Kandanda Mass Email" priority="1">https://raw.githack.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail_update.xml</server>
 		<!-- Normally the following path should be used
 		https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail_update.xml
