@@ -6,9 +6,9 @@
 .PARAMETER
   None
 .INPUTS
-  None
+  All files needed for this joomla extension
 .OUTPUTS
-  <Outputs if any, otherwise state None - example: Log file stored in C:\Windows\Temp\<name>.log>
+  Joomla extension archive stored in .release
 .NOTES
   Version:        1.0
   Author:         Heinl Christian
@@ -24,8 +24,11 @@ $sExtensionName = (Get-ChildItem).directory.name[0]
 # Relative path name of update XML file which is also stored together with zip archive
 $sUpdateXMLfilePath = ".release\" + $sExtensionName + "_update.xml"
 
+# Relative path name of changelog XML file which is also stored together with zip archive
+$sChangelogXMLfilePath = ".release\changelog.xml"
+
 # URL where module installation archive is loacated
-$sDownloadURLPath = "https://github.com/heinchrs/mod_kandandamassemail/blob/main/.release/"
+$sDownloadURLPath = "https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/"
 
 # -----------------------------------------------------------[Execution]------------------------------------------------------------
 
@@ -67,3 +70,7 @@ Start-Process -FilePath "C:\Program Files\7-Zip\7z.exe" -ArgumentList "a -tzip $
 #
 ## Save XML update file
 #$xml.Save($sUpdateXMLfilePath)
+#Write-Output "Do not forget to update the corresponding XML files"
+Write-Host -fore DarkGreen "Do not forget to update the corresponding XML files"
+Write-Output $sUpdateXMLfilePath;
+Write-Output $sChangelogXMLfilePath;
