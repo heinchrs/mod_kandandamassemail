@@ -33,6 +33,7 @@
 			</fieldset>
 		</fields>
 	</config>
+	<changelogurl>https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/changelog.xml</changelogurl>
 	<updateservers>
 	  <!--<server type="extension" name="Kandanda Mass Email" priority="1">http://heinl-neusorg.de/joomla/modules/kandandamassemail/mod_kandandamassemail_update.xml</server>-->
 		<server type="extension" name="Kandanda Mass Email" priority="1">https://raw.githack.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail_update.xml</server>
