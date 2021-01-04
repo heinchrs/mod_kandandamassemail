@@ -50,20 +50,20 @@ Start-Process -FilePath "C:\Program Files\7-Zip\7z.exe" -ArgumentList "a -tzip $
 
 # Update version info in update XML file
 #################################################
-# Create new XML object
-$xml = New-Object XML
-# Load content of update XML
-$xml.Load($sUpdateXMLfilePath)
-
-# Get element containing the version information
-$elementVersion =  $xml.SelectSingleNode("//version")
-# Update the version info with version from module manifest file
-$elementVersion.InnerText = $sVersionInfo
-
-# Get element containing the download URL information
-$elementURL =  $xml.SelectSingleNode("//downloadurl")
-# Update the download location info according to version from module manifest file
-$elementURL.InnerText = $sDownloadURLPath + $sExtensionName + "-v" + $sVersionInfo + ".zip?raw=true"
-
-# Save XML update file
-$xml.Save($sUpdateXMLfilePath)
+## Create new XML object
+#$xml = New-Object XML
+## Load content of update XML
+#$xml.Load($sUpdateXMLfilePath)
+#
+## Get element containing the version information
+#$elementVersion =  $xml.SelectSingleNode("//version")
+## Update the version info with version from module manifest file
+#$elementVersion.InnerText = $sVersionInfo
+#
+## Get element containing the download URL information
+#$elementURL =  $xml.SelectSingleNode("//downloadurl")
+## Update the download location info according to version from module manifest file
+#$elementURL.InnerText = $sDownloadURLPath + $sExtensionName + "-v" + $sVersionInfo + ".zip?raw=true"
+#
+## Save XML update file
+#$xml.Save($sUpdateXMLfilePath)

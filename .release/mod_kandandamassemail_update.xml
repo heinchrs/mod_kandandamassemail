@@ -1,38 +1,41 @@
 <updates>
-  <update>
-    <name>Kandanda Mass Email</name>
-    <description>Module for sending emails based on address records from Kandanda component.</description>
-    <element>mod_kandandamassemail</element>
-    <type>module</type>
-    <version>1.0.1</version>
-    <downloads>
-      <downloadurl type="full" format="zip">https://github.com/heinchrs/mod_kandandamassemail/blob/main/.release/mod_kandandamassemail-v1.0.1.zip?raw=true</downloadurl>
-    </downloads>
-    <targetplatform name="joomla" version=".*" />
-    <client>0</client>
-  </update>
-  <update>
-    <name>Kandanda Mass Email</name>
-    <description>Module for sending emails based on address records from Kandanda component.</description>
-    <element>mod_kandandamassemail</element>
-    <type>module</type>
-    <version>1.1.0</version>
-    <downloads>
-      <downloadurl type="full" format="zip">https://github.com/heinchrs/mod_kandandamassemail/blob/main/.release/mod_kandandamassemail-v1.1.0.zip?raw=true</downloadurl>
-    </downloads>
-    <targetplatform name="joomla" version=".*" />
-    <client>0</client>
-  </update>
-  <update>
-    <name>Kandanda Mass Email</name>
-    <description>Module for sending emails based on address records from Kandanda component.</description>
-    <element>mod_kandandamassemail</element>
-    <type>module</type>
-    <version>1.1.1</version>
-    <downloads>
-      <downloadurl type="full" format="zip">https://github.com/heinchrs/mod_kandandamassemail/blob/main/.release/mod_kandandamassemail-v1.1.1.zip?raw=true</downloadurl>
-    </downloads>
-    <targetplatform name="joomla" version=".*" />
-    <client>0</client>
-  </update>
+	<update>
+		<name>Kandanda Mass Email</name>
+		<description>Module for sending emails based on address records from Kandanda component.</description>
+		<element>mod_kandandamassemail</element>
+		<type>module</type>
+		<version>1.0.1</version>
+		<changelogurl>https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/changelog.xml</changelogurl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail-v1.0.1.zip</downloadurl>
+		</downloads>
+		<targetplatform name="joomla" version=".*" />
+		<client>0</client>
+	</update>
+	<update>
+		<name>Kandanda Mass Email</name>
+		<description>Module for sending emails based on address records from Kandanda component.</description>
+		<element>mod_kandandamassemail</element>
+		<type>module</type>
+		<version>1.1.0</version>
+		<changelogurl>https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/changelog.xml</changelogurl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail-v1.1.0.zip</downloadurl>
+		</downloads>
+		<targetplatform name="joomla" version=".*" />
+		<client>0</client>
+	</update>
+	<update>
+		<name>Kandanda Mass Email</name>
+		<description>Module for sending emails based on address records from Kandanda component.</description>
+		<element>mod_kandandamassemail</element>
+		<type>module</type>
+		<version>1.1.1</version>
+		<changelogurl>https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/changelog.xml</changelogurl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://raw.githubusercontent.com/heinchrs/mod_kandandamassemail/main/.release/mod_kandandamassemail-v1.1.1.zip</downloadurl>
+		</downloads>
+		<targetplatform name="joomla" version=".*" />
+		<client>0</client>
+	</update>
 </updates>
