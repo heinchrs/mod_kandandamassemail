@@ -129,7 +129,7 @@ class KandandaMassEmail
 		}
 
 		// If debug mode is selected
-		if ($this->params->get('debug_output', '') == 1)
+		if (($this->params->get('debug_output', '') == 1) && ( (count((array) $multipleMailAddresses) > 0) || (count((array) $singleMailAddresses) > 0) ))
 		{
 			print ("<h2>Mailaccounts addressed via one mail each as BCC receiver</h2>");
 			print ("<pre>");
