@@ -169,7 +169,10 @@ class KandandaMassEmail
 
 				// Add form content to email body
 				$body .= $this->content;
-				$mailer->setBody($this->content);
+				$mailer->setBody($body);
+
+				// Body in plain text for non-HTML mail clients
+				$mailer->AltBody = strip_tags($this->content);
 
 				$user = JFactory::getUser();
 				$mailer->addReplyTo($user->email, $user->name);
