@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="3.0" method="upgrade">
+<extension version="3.0" type="module" client="site" method="upgrade">
 	<name>Kandanda Mass Email</name>
 	<creationDate>31-Dec-2020</creationDate>
 	<author>Heinl Christian</author>

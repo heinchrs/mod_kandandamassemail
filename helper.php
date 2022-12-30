@@ -10,6 +10,7 @@
 // -- No direct access
 defined('_JEXEC') or die;
 
+// Register class JFile in central load routine to be found in the corresponding file
 JLoader::register('JFile', JPATH_LIBRARIES . '/joomla/filesystem/file.php');
 
 /**
@@ -17,7 +18,7 @@ JLoader::register('JFile', JPATH_LIBRARIES . '/joomla/filesystem/file.php');
  * ini_set('display_startup_errors', 1);
  * error_reporting(E_ALL);
  */
-ini_set("mail.log", "/logs/mail.log");
+ini_set("mail.log", $_SERVER['DOCUMENT_ROOT'] . "/log/mail.log");
 ini_set("mail.add_x_header", true);
 
 
