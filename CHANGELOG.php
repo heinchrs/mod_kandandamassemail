@@ -37,6 +37,10 @@ function CHANGELOG()
 	 *
 	 * **********************************************
 	 *
+	 * * Version 1.1.1
+	 * 30-Dec-2022 Heinl Christian
+	 * ^ PHP8 compatibility
+	 *
 	 * Version 1.1.0
 	 * 30-Dec-2020 Heinl Christian
 	 * + Header image for email can be configured
