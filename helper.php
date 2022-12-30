@@ -76,9 +76,8 @@ class KandandaMassEmail
 	/**
 	 * Constructor
 	 * @param   array $params Module configuration parameter
-	 * @return  void
 	 */
-	public function KandandaMassEmail($params)
+	public function __construct($params)
 	{
 		$this->params = $params;
 	}
@@ -281,12 +280,6 @@ class KandandaMassEmail
 
 		// Get email content out of form
 		$this->content = $this->formData->get('email_content');
-
-		// If php option 'magic_quotes' is active -> remove slashes from email content
-		if (get_magic_quotes_gpc())
-		{
-			$this->content = stripslashes($this->content);
-		}
 	}
 
 	/**

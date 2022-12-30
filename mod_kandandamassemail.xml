@@ -7,7 +7,7 @@
 	<authorUrl/>
 	<copyright>Heinl Christian, 2020</copyright>
 	<license>GNU/GPL 3</license>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<description>MOD_KANDANDA_MASSMAIL_DESCRIPTION</description>
 	<files folder="site">
 		<folder>language</folder>
